@@ -11,9 +11,8 @@ exports.login = function(req, res){
 };
 
 exports.logout = function(req, res){
-  req.session.destroy(function(){
-    res.redirect('/');
-  });
+  req.logout();
+  res.redirect('/');
 };
 
 exports.create = function(req, res){
@@ -26,18 +25,4 @@ exports.create = function(req, res){
   });
 };
 
-exports.authenticate = function(req, res){
-  User.authenticate(req.body, function(user){
-    if(user){
-      req.session.regenerate(function(){
-        req.session.userId = user._id;
-        req.session.save(function(){
-          res.redirect('/');
-        });
-      });
-    }else{
-      res.redirect('/login');
-    }
-  });
-};
 
