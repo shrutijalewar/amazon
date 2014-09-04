@@ -12,6 +12,8 @@
       ul.nav.navbar-nav.navbar-right
         if user
           li: a(href='/profile/edit'): i.fa.fa-pencil-square-o &nbsp; Profile
+          li: a(href='/products'): i.fa.fa-pencil-square-o &nbsp; Products
+          li: a(href='/cart'): i.fa.fa-shopping-cart &nbsp; Cart
           li
             form.navbar-form(method='post', action='/logout')
               .form-group

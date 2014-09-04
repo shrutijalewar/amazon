@@ -1,0 +1,21 @@
+extends ../shared/template
+block content
+  h2 Products
+    table#products.table.table-bordered
+      thead
+        tr
+          th Name
+          th Photo
+          th Price
+      tbody
+        each product in products
+          tr
+            td
+              form(method='post', action='/cart')
+                input(type='hidden', name='productId', value=product._id)
+                button.btn.btn-primary.btn-sm(type='submit')= product.name
+            td(style='background-image:url(#{product.photo})')
+            td= product.price
+
+block scripts
+
